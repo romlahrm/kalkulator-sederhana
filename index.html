@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .kalkulator{
+            background-color: tomato;
+            width: 50%;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .kalkulasi{
+            display: flex;
+        }
+        .nilai1, .nilai2{
+            width: 100%;
+            text-align: center;
+        }
+        input{
+            width: 90%;
+            height: 40px;
+            border: none;
+            font-size: 20px;
+            font-family: 'roboto';
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+        }
+        .operasi{
+            margin-top: 10px;
+            width: 90%;
+            display: flex;
+            text-align: center;
+        }
+        select{
+            margin: 0 auto;
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            margin-left: 13px;
+            font-size: 20px;
+        }
+        button{
+            margin-left: 10px;
+            background-color: yellowgreen;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 30%;
+            right: 0;
+        }
+        #hasil{
+            margin-top: 10px;
+            width: 100%;
+            /* margin-left: 20px; */
+            background-color: #333;
+            color: white;
+            font-size: 20px;
+            height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rahmatullah Poetra</h1>
+    <div class="kalkulator">
+        <div class="kalkulasi">
+
+            <div class="nilai1">
+                
+                <h4>Nilai 1</h4>
+                <input type="number" name="nilai1" id="nilai1">
+            </div>
+            <div class="nilai2">
+                <h4>Nilai 2</h4>
+                <input type="number" name="nilai2" id="nilai2">
+            </div>
+        </div>
+        <div class="operasi">
+            <select name="operasi" id="operasi">
+                <option value="/">/</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="+">+</option>
+            </select>
+            <button type="submit" name="submit" id="submit">Hitung</button>
+        </div>
+        <input type="number" disabled id="hasil" name="hasil">
+    </div>
+
+
+    <script>
+        const nilai1 = document.getElementById('nilai1');
+        const nilai2 = document.getElementById('nilai2');
+        const operasi = document.getElementById('operasi');
+        const hasil = document.getElementById('hasil');
+        const submit = document.getElementById('submit');
+        submit.addEventListener('click', function(){
+            if(operasi.value == "/"){
+                hasil.value = nilai1.value / nilai2.value;
+            }else if(operasi.value == "+"){
+                hasil.value = parseInt(nilai1.value) + parseInt(nilai2.value);
+            }else if(operasi.value == "*"){
+                hasil.value = nilai1.value * nilai2.value;
+            }
+            else if(operasi.value == "-"){
+                hasil.value = nilai1.value - nilai2.value;
+            }
+        })
+    </script>
+</body>
+</html>
